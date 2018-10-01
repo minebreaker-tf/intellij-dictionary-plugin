@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>rip.deadcode.intellij-dictionary-plugin</id>
+    <name>Dictionary Core Plugin</name>
+    <vendor email="" url=""></vendor>
+
+    <description><![CDATA[
+    ]]></description>
+
+    <change-notes><![CDATA[
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensionPoints>
+        <extensionPoint name="dictionary" interface="rip.deadcode.intellij.dictionary.Dictionary" />
+    </extensionPoints>
+    <extensions defaultExtensionNs="com.intellij">
+        <!--<applicationConfigurable instance="rip.deadcode.intellij.dictionary.core.ThesaurusSettingPage"/>-->
+    </extensions>
+
+    <actions>
+        <action id="Dictionary.DictionaryRequest"
+                class="rip.deadcode.intellij.dictionary.DictionaryAction"
+                text="Dictionary Action"
+                description="Consults dictionaries and shows the meaning/synonyms/etc. of it.">
+            <keyboard-shortcut first-keystroke="control shift Q" keymap="$default"/>
+        </action>
+    </actions>
+</idea-plugin>
