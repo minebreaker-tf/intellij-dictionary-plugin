@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>rip.deadcode.intellij-dictionary-plugin</id>
     <name>Dictionary Core Plugin</name>
-    <vendor email="" url=""></vendor>
+    <vendor email="" url="">minebreaker</vendor>
 
     <description><![CDATA[
     ]]></description>
@@ -12,10 +12,15 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensionPoints>
-        <extensionPoint name="dictionary" interface="rip.deadcode.intellij.dictionary.Dictionary" />
+        <extensionPoint name="dictionary" interface="rip.deadcode.intellij.dictionary.Dictionary"/>
     </extensionPoints>
+
     <extensions defaultExtensionNs="com.intellij">
-        <!--<applicationConfigurable instance="rip.deadcode.intellij.dictionary.core.ThesaurusSettingPage"/>-->
+        <applicationConfigurable instance="rip.deadcode.intellij.dictionary.DictionaryConfig"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="rip.deadcode.intellij-dictionary-plugin">
+        <dictionary implementation="rip.deadcode.intellij.dictionary.TestDictionary"/>
     </extensions>
 
     <actions>
