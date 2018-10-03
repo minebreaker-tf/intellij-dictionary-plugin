@@ -1,7 +1,9 @@
 package rip.deadcode.intellij.dictionary
 
+import com.intellij.ide.IdeTooltipManager
 import com.intellij.openapi.ui.popup.JBPopup
 import com.intellij.openapi.ui.popup.JBPopupFactory
+import com.intellij.ui.HintHint
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.JBUI
@@ -11,15 +13,22 @@ import java.awt.Dimension
 import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.JComponent
-import javax.swing.JTextArea
 import javax.swing.border.EmptyBorder
 import javax.swing.border.LineBorder
+import javax.swing.text.html.HTMLEditorKit
 
 class DictionaryComponent(defaultText: String?) : JComponent() {
 
     internal val input = JBTextField()
     internal var hideHandler: () -> Unit = {}
-    private val resultView = JTextArea()  // TODO should accept html
+    private val resultView = IdeTooltipManager.initPane("", HintHint(), null).also {
+        val editorKit = it.editorKit as HTMLEditorKit
+        val s = editorKit.styleSheet
+        s.addRule("body { font-size: 16px; }")
+        editorKit.styleSheet = s
+        it.editorKit = editorKit
+    }
+
 
     init {
         layout = BorderLayout()

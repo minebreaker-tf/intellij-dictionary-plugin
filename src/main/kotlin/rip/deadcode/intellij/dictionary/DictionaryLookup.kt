@@ -17,7 +17,7 @@ object DictionaryLookup {
         return if (dictionary == null) {
             "Could not find the dictionary for the prefix."
         } else {
-            dictionary.lookUp(word) ?: "No match found in the dictionary."
+            dictionary.lookUp(word) ?: "No match found in the dictionary '${dictionary.getDisplayName()}'"
         }
     }
 
