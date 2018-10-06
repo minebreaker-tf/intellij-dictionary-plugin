@@ -16,7 +16,8 @@
     </extensionPoints>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable instance="rip.deadcode.intellij.dictionary.DictionaryConfig"/>
+        <applicationConfigurable id="rip.deadcode.intellij.dictionary"
+                                 instance="rip.deadcode.intellij.dictionary.DictionaryConfig"/>
     </extensions>
 
     <extensions defaultExtensionNs="rip.deadcode.intellij-dictionary-plugin">

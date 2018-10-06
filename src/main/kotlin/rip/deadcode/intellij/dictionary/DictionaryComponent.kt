@@ -38,10 +38,16 @@ class DictionaryComponent(defaultText: String?) : JComponent() {
                 when (e.keyCode) {
                     KeyEvent.VK_ENTER -> {
                         resultView.text = DictionaryLookup.lookUp(input.text)
+                        resultView.moveCaretPosition(0)
                     }
                     KeyEvent.VK_ESCAPE -> {
                         hideHandler()
                     }
+//                    KeyEvent.VK_UP -> {
+                    // TODO move resultView up/down
+//                    }
+//                    KeyEvent.VK_DOWN -> {
+//                    }
                 }
             }
         })
