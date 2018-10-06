@@ -12,6 +12,10 @@ object DictionaryLookup {
     fun lookUp(input: String): String {
 
         val (prefix, word) = getPrefix(input)
+        if (word.isBlank()) {
+            return ""
+        }
+
         val dictionary = dictionaries.firstOrNull { it.canHandle(prefix) }
 
         return if (dictionary == null) {
