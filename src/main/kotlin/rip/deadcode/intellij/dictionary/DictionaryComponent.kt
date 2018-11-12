@@ -24,7 +24,7 @@ class DictionaryComponent(defaultText: String?) : JComponent() {
     private val resultView = IdeTooltipManager.initPane("", HintHint(), null).also {
         val editorKit = it.editorKit as HTMLEditorKit
         val s = editorKit.styleSheet
-        s.addRule("body { font-size: 16px; }")
+        s.addRule("body { font-size: 16px; }")  // TODO cool css classes
         editorKit.styleSheet = s
         it.editorKit = editorKit
     }
@@ -86,7 +86,7 @@ class DictionaryComponent(defaultText: String?) : JComponent() {
                     .setCancelOnClickOutside(true)
                     .setCancelKeyEnabled(false)
                     .setResizable(true)
-                    .setMinSize(Dimension(320, 180))
+                    .setMinSize(Dimension(320, 180))  // TODO
                     .setMovable(true)
                     .createPopup()
             component.hideHandler = {

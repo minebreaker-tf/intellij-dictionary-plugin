@@ -4,17 +4,30 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.ui.awt.RelativePoint
+import java.awt.Point
+import java.awt.Toolkit
 
 class DictionaryAction : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
 
-        val editor = FileEditorManager.getInstance(e.project!!).selectedTextEditor!!
+        val project = e.project
+        val editor = if (project != null) {
+            FileEditorManager.getInstance(project).selectedTextEditor
+        } else null
 
-        val popup = DictionaryComponent.createPopup(editor.selectionModel.selectedText)
+        val selection = editor?.selectionModel?.selectedText ?: ""
 
-        val cursorPos = editor.visualPositionToXY(editor.caretModel.visualPosition)
-        val rp = RelativePoint(editor.contentComponent, cursorPos)
+        val popup = DictionaryComponent.createPopup(selection)
+
+        val rp = if (editor != null) {
+            val cursorPos = editor.visualPositionToXY(editor.caretModel.visualPosition)
+            RelativePoint(editor.contentComponent, cursorPos)
+        } else {
+            val screenSize = Toolkit.getDefaultToolkit().screenSize
+            RelativePoint(Point(screenSize.width / 2 - 160, screenSize.height / 2 - 90))  // TODO
+        }
+
         popup.show(rp)
     }
 
