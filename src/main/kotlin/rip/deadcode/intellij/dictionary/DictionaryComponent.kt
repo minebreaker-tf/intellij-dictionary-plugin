@@ -6,7 +6,6 @@ import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.ui.HintHint
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.JBTextField
-import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
 import java.awt.BorderLayout
 import java.awt.Dimension
@@ -14,7 +13,6 @@ import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.JComponent
 import javax.swing.border.EmptyBorder
-import javax.swing.border.LineBorder
 import javax.swing.text.html.HTMLEditorKit
 
 class DictionaryComponent(defaultText: String?) : JComponent() {
@@ -53,20 +51,16 @@ class DictionaryComponent(defaultText: String?) : JComponent() {
         })
 
         input.also {
-            it.border = LineBorder(JBUI.CurrentTheme.SearchEverywhere.searchFieldBorderColor())
-            it.background = JBUI.CurrentTheme.SearchEverywhere.searchFieldBackground()
             it.font = it.font.deriveFont(18F)
         }
 
         resultView.also {
             it.isEditable = false
             it.border = EmptyBorder(0, 0, 0, 0)
-            it.background = JBUI.CurrentTheme.SearchEverywhere.dialogBackground()
             it.font = UIUtil.getListFont().deriveFont(18F)
         }
 
         this.border = EmptyBorder(0, 0, 0, 0)
-        this.background = JBUI.CurrentTheme.SearchEverywhere.dialogBackground()
 
         this.add(input, BorderLayout.NORTH)
         this.add(JBScrollPane(resultView), BorderLayout.CENTER)
