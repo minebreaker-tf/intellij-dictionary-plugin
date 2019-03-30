@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>rip.deadcode.intellij-dictionary-plugin</id>
     <name>Dictionary Core</name>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <vendor email="" url="">minebreaker</vendor>
 
     <description><![CDATA[
@@ -12,7 +12,6 @@
     No change notes. Still in the alpha status.
     ]]></change-notes>
 
-    <idea-version since-build="183"/>
     <depends>com.intellij.modules.platform</depends>
 
     <extensionPoints>
