@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>rip.deadcode.intellij-dictionary-plugin</id>
     <name>Dictionary Core</name>
-    <version>0.1.3</version>
+    <version>0.1.4</version>
     <vendor email="" url="">minebreaker</vendor>
 
     <description><![CDATA[
